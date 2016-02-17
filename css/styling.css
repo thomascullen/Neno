@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.editor {
+  top: 0;
+  left: 0;
+  width: 50vw;
+  outline: none;
+  height: 100vh;
+  padding: 30px;
+  position: absolute;
+  background-color:#F4F6F7;
+}
+
+.preview {
+  top: 0;
+  left: 50vw;
+  width: 50vw;
+  height: 100vh;
+  padding: 30px;
+  position: absolute;
+}
