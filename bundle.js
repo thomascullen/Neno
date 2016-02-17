@@ -25,6 +25,7 @@ module.exports = Application;
 const ace = require('brace');
 const React = require('react');
 const markdown = require('marked');
+const ipcRenderer = electron.ipcRenderer;
 require('brace/mode/markdown');
 
 markdown.setOptions({
@@ -36,6 +37,7 @@ class Editor extends React.Component {
     super(props);
     this.state = { preview: '' };
     this.onChange = this.onChange.bind(this);
+    this.setContent = this.setContent.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +45,22 @@ class Editor extends React.Component {
     this.editor.getSession().setMode('ace/mode/markdown');
     this.editor.on('change', this.onChange);
     this.editor.focus();
+
+    ipcRenderer.on('open', function (event, content) {
+      this.setContent(content);
+    }.bind(this));
+
+    ipcRenderer.on('save', function (e) {
+      ipcRenderer.send('save', this.getContent());
+    }.bind(this));
+  }
+
+  getContent() {
+    return this.editor.getValue();
+  }
+
+  setContent(content) {
+    this.editor.setValue(content);
   }
 
   onChange() {

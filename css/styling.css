@@ -21,5 +21,6 @@
   width: 50vw;
   height: 100vh;
   padding: 30px;
+  overflow-y: scroll;
   position: absolute;
 }

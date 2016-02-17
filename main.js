@@ -4,9 +4,11 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
-require('./menu');
 
-let mainWindow = null;
+require('./menu');
+require('./file-management');
+
+app.mainWindow = null;
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -15,7 +17,7 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({
+  app.mainWindow = new BrowserWindow({
     width: 1000,
     height: 650,
     center: true,
@@ -23,9 +25,9 @@ app.on('ready', function() {
     minHeight: 300,
   });
 
-  // mainWindow.webContents.openDevTools();
-  mainWindow.loadURL('file://'+__dirname+'/index.html');
-  mainWindow.on('closed', function() {
-    mainWindow = null;
+  app.mainWindow.webContents.openDevTools();
+  app.mainWindow.loadURL('file://'+__dirname+'/index.html');
+  app.mainWindow.on('closed', function() {
+    app.mainWindow = null;
   });
 });

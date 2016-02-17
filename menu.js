@@ -16,6 +16,21 @@ const menuTemplate = [
         click: function() { app.quit(); }
       },
     ]
+  },
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Open',
+        accelerator: 'Command+o',
+        click: function() { app.openFile(); }
+      },
+      {
+        label: 'Save As',
+        accelerator: 'Command+shift+s',
+        click: function() { app.saveAs(); }
+      }
+    ]
   }
 ]
 
