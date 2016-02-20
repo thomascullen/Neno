@@ -2,11 +2,17 @@
 
 $header: #39434D;
 $copy: #4F5E6E;
+$link: #1292FF;
 $subtle: #A6B1BE;
+$comment: #AEB7BE;
 
 html, body {
   font-size: 18px;
   line-height: 1.9rem;
+}
+
+* {
+  font-family: 'droid_serif_regular', sans-serif;
 }
 
 .CodeMirror { color: $copy; }
@@ -16,18 +22,21 @@ html, body {
   font-family: 'open_sansbold', sans-serif;
 }
 
+h1,
 .cm-s-default .cm-header-1 {
   @extend %header;
   font-size: 1.8rem;
   line-height: 2.4rem;
 }
 
+h2,
 .cm-s-default .cm-header-2 {
   @extend %header;
   font-size: 1.7rem;
   line-height: 2rem;
 }
 
+h3,
 .cm-s-default .cm-header-3 {
   @extend %header;
   font-size: 1.5rem;
@@ -35,7 +44,7 @@ html, body {
 }
 
 .cm-s-default .cm-link {
-  color: $header;
+  color: $link;
 }
 
 .cm-s-default .cm-url {
@@ -43,6 +52,7 @@ html, body {
 }
 
 .cm-s-default .cm-comment {
-  color: #1292FF;
-  background: #E9ECEF;
+  color: $comment;
 }
+
+.cm-s-default .cm-variable-2 { color: $copy; }

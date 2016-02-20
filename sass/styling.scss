@@ -1,13 +1,14 @@
 @import "typography";
+@import "preview";
+@import "editor";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'droid_serif_regular', sans-serif;
 }
 
-.editor::before {
+.application::before {
   top: 0;
   left: 0;
   z-index: 9;
@@ -20,7 +21,7 @@
   background: linear-gradient(rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.0));
 }
 
-.editor::after {
+.application::after {
   left: 0;
   bottom: 0;
   z-index: 9;

@@ -1,11 +1,7 @@
 'use strict';
 const React = require('react');
-const markdown = require('marked');
+const classNames = require('classnames');
 const ipcRenderer = electron.ipcRenderer;
-
-markdown.setOptions({
-  breaks: true,
-});
 
 class Editor extends React.Component {
   constructor(props) {
@@ -14,6 +10,7 @@ class Editor extends React.Component {
 
   componentDidMount() {
     this.editor = CodeMirror(this.refs.editor, {
+      mode: 'gfm',
       lineWrapping: true,
     });
 
@@ -34,13 +31,15 @@ class Editor extends React.Component {
     this.editor.setValue(content);
   }
 
-  render() {
-    return (
-      <div>
-        <div ref="editor" className='editor' />
-        <div ref='preview' className='preview' />
-      </div>
+  className() {
+    return classNames(
+      "editor",
+      { "editor--open": this.props.visible }
     )
+  }
+
+  render() {
+    return <div ref="editor" className={this.className()} />
   }
 }
 

@@ -48,6 +48,16 @@ const menuTemplate = [
       { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
       { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
     ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'Toggle Preview',
+        accelerator: 'Command+p',
+        click: function() { app.mainWindow.webContents.send('togglePreview'); }
+      }
+    ]
   }
 ]
 
