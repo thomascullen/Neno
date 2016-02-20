@@ -8,10 +8,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .application::before {
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 5;
   content: '';
   width: 100%;
   height: 100px;
@@ -24,19 +30,27 @@
 .application::after {
   left: 0;
   bottom: 0;
-  z-index: 9;
+  z-index: 5;
   content: '';
   width: 100%;
-  height: 100px;
+  height: 140px;
   display: block;
   position: fixed;
   pointer-events: none;
   background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0));
 }
 
-.CodeMirror {
-  height: 100%;
-  min-height: 100vh;
-  padding: 80px 15vw;
-  box-sizing: border-box;
+.current_mode {
+  width: 100%;
+  z-index: 10;
+  bottom: 5px;
+  position: fixed;
+  text-align: center;
+
+  span {
+    font-size: 11px;
+    color: #A6B1BE;
+    text-transform: uppercase;
+    font-family: 'open_sansbold', sans-serif;
+  }
 }

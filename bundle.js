@@ -48,7 +48,13 @@ class Application extends React.Component {
         ref: 'preview',
         getContent: this.getContent,
         visible: this.state.previewing
-      })
+      }),
+      React.createElement(
+        'div',
+        { className: 'current_mode' },
+        this.state.previewing ? "Preview" : "Edit",
+        ' Mode'
+      )
     );
   }
 }
@@ -70,6 +76,7 @@ class Editor extends React.Component {
   componentDidMount() {
     this.editor = CodeMirror(this.refs.editor, {
       mode: 'gfm',
+      autofocus: true,
       lineWrapping: true
     });
 

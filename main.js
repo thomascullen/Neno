@@ -18,14 +18,14 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   app.mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 650,
+    width: 1100,
+    height: 700,
     center: true,
     minWidth: 600,
     minHeight: 300,
   });
 
-  app.mainWindow.webContents.openDevTools();
+  // app.mainWindow.webContents.openDevTools();
   app.mainWindow.loadURL('file://'+__dirname+'/index.html');
   app.mainWindow.on('closed', function() {
     app.mainWindow = null;

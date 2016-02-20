@@ -11,6 +11,7 @@ class Editor extends React.Component {
   componentDidMount() {
     this.editor = CodeMirror(this.refs.editor, {
       mode: 'gfm',
+      autofocus: true,
       lineWrapping: true,
     });
 

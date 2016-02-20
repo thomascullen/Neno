@@ -41,6 +41,10 @@ class Application extends React.Component {
           getContent={this.getContent}
           visible={this.state.previewing}
         />
+
+        <div className="current_mode">
+          {this.state.previewing ? "Preview" : "Edit"} Mode
+        </div>
       </div>
     )
   }
