@@ -1,0 +1,48 @@
+@import 'fonts';
+
+$header: #39434D;
+$copy: #4F5E6E;
+$subtle: #A6B1BE;
+
+html, body {
+  font-size: 18px;
+  line-height: 1.9rem;
+}
+
+.CodeMirror { color: $copy; }
+
+%header {
+  color: #333;
+  font-family: 'open_sansbold', sans-serif;
+}
+
+.cm-s-default .cm-header-1 {
+  @extend %header;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.cm-s-default .cm-header-2 {
+  @extend %header;
+  font-size: 1.7rem;
+  line-height: 2rem;
+}
+
+.cm-s-default .cm-header-3 {
+  @extend %header;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+.cm-s-default .cm-link {
+  color: $header;
+}
+
+.cm-s-default .cm-url {
+  color: $subtle;
+}
+
+.cm-s-default .cm-comment {
+  color: #1292FF;
+  background: #E9ECEF;
+}

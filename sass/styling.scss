@@ -1,0 +1,41 @@
+@import "typography";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'droid_serif_regular', sans-serif;
+}
+
+.editor::before {
+  top: 0;
+  left: 0;
+  z-index: 9;
+  content: '';
+  width: 100%;
+  height: 100px;
+  display: block;
+  position: fixed;
+  pointer-events: none;
+  background: linear-gradient(rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.0));
+}
+
+.editor::after {
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  content: '';
+  width: 100%;
+  height: 100px;
+  display: block;
+  position: fixed;
+  pointer-events: none;
+  background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0));
+}
+
+.CodeMirror {
+  height: 100%;
+  min-height: 100vh;
+  padding: 80px 15vw;
+  box-sizing: border-box;
+}

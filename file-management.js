@@ -6,7 +6,7 @@ const app = electron.app;
 const dialog = electron.dialog;
 const ipcMain = electron.ipcMain;
 
-let filePath = null;
+let filePath = undefined;
 
 app.openFile = function() {
   dialog.showOpenDialog(app.mainWindow, {
@@ -16,6 +16,14 @@ app.openFile = function() {
       openFile(files[0]);
     }
   });
+}
+
+app.save = function() {
+  if (filePath != undefined) {
+    writeFile(filePath);
+  } else {
+    app.saveAs();
+  }
 }
 
 app.saveAs = function() {
@@ -29,6 +37,7 @@ app.saveAs = function() {
 function writeFile(path) {
   filePath = path;
   app.mainWindow.webContents.send('save');
+  app.mainWindow.setTitle(path);
 }
 
 ipcMain.on('save', function(event, content) {
@@ -43,5 +52,6 @@ function openFile(path) {
   fs.readFile(path, 'utf8', function(err, data) {
     filePath = path
     app.mainWindow.webContents.send('open', data);
+    app.mainWindow.setTitle(path);
   });
 }
