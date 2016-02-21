@@ -6,6 +6,7 @@ const ipcRenderer = electron.ipcRenderer;
 class Editor extends React.Component {
   constructor(props) {
     super(props);
+    this.focus = this.focus.bind(this);
   }
 
   componentDidMount() {
@@ -17,7 +18,7 @@ class Editor extends React.Component {
 
     this.editor.on('change', this.props.onChange);
 
-    ipcRenderer.on('open', function(event, content) {
+    ipcRenderer.on('setContent', function(event, content) {
       this.setContent(content);
     }.bind(this));
 
@@ -34,6 +35,10 @@ class Editor extends React.Component {
     this.editor.setValue(content);
   }
 
+  focus() {
+    this.editor.focus();
+  }
+
   className() {
     return classNames(
       "editor",
@@ -42,7 +47,13 @@ class Editor extends React.Component {
   }
 
   render() {
-    return <div ref="editor" className={this.className()} />
+    return (
+      <div
+        ref="editor"
+        onClick={this.focus}
+        className={this.className()}
+      />
+    )
   }
 }
 

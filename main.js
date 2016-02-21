@@ -2,13 +2,13 @@
 
 const electron = require('electron');
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
+const BrowserWindow = electron.BrowserWindow;
 
 require('./menu');
 require('./file-management');
 
-app.mainWindow = null;
+app.currentWindow = null;
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -17,7 +17,14 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  app.mainWindow = new BrowserWindow({
+  app.newWindow();
+});
+
+// Creates a new window
+// ==== arguments
+// *content* - Content to be loaded into the editor
+app.newWindow = function(content, options) {
+  const newWindow = new BrowserWindow({
     width: 1100,
     height: 700,
     center: true,
@@ -26,9 +33,24 @@ app.on('ready', function() {
     titleBarStyle: 'hidden',
   });
 
-  app.mainWindow.webContents.openDevTools();
-  app.mainWindow.loadURL('file://'+__dirname+'/index.html');
-  app.mainWindow.on('closed', function() {
-    app.mainWindow = null;
+  newWindow.loadURL('file://'+__dirname+'/index.html');
+  newWindow.webContents.on('did-finish-load', function() {
+    const editorContent = content || '';
+    newWindow.webContents.send('setContent', editorContent);
+
+    const path = options != undefined ? options.path : undefined
+    newWindow.path = path
+    // newWindow.webContents.openDevTools();
   });
-});
+
+  newWindow.on('focus', function() {
+    this.currentWindow = newWindow;
+  }.bind(this));
+
+  this.currentWindow = newWindow;
+}
+
+app.getFilePath = function() {
+  const window = app.currentWindow;
+  if (window) { return window.path; }
+}

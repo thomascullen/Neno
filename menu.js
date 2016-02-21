@@ -55,7 +55,12 @@ const menuTemplate = [
       {
         label: 'Toggle Preview',
         accelerator: 'Command+p',
-        click: function() { app.mainWindow.webContents.send('togglePreview'); }
+        click: function() {
+          const window = app.currentWindow;
+          if (window) {
+            window.webContents.send('togglePreview');
+          }
+        }
       }
     ]
   }

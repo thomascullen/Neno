@@ -147,6 +147,9 @@ p {
   padding-left: 2rem;
   margin-bottom: 1.5rem; }
 
+.preview a {
+  color: #1292FF; }
+
 .editor {
   width: 100vw;
   height: 100vh;
