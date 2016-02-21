@@ -23,9 +23,10 @@ app.on('ready', function() {
     center: true,
     minWidth: 600,
     minHeight: 300,
+    titleBarStyle: 'hidden',
   });
 
-  // app.mainWindow.webContents.openDevTools();
+  app.mainWindow.webContents.openDevTools();
   app.mainWindow.loadURL('file://'+__dirname+'/index.html');
   app.mainWindow.on('closed', function() {
     app.mainWindow = null;

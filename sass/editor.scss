@@ -21,3 +21,7 @@
   padding: 80px 15vw;
   box-sizing: border-box;
 }
+
+.CodeMirror-scroll {
+  overflow: visible !important;
+}

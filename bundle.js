@@ -75,7 +75,7 @@ class Editor extends React.Component {
 
   componentDidMount() {
     this.editor = CodeMirror(this.refs.editor, {
-      mode: 'gfm',
+      mode: 'markdown-extended',
       autofocus: true,
       lineWrapping: true
     });

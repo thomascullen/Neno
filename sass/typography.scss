@@ -7,27 +7,28 @@ $subtle: #A6B1BE;
 $comment: #AEB7BE;
 
 html, body {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.9rem;
 }
 
-* {
-  font-family: 'droid_serif_regular', sans-serif;
-}
+* { @extend %serif; }
 
-.CodeMirror { color: $copy; }
+.preview, .CodeMirror { color: $copy; }
 
+// Headers
 %header {
-  color: #333;
-  font-family: 'open_sansbold', sans-serif;
+  color: $header;
+  @extend %sans-serif;
 }
 
 h1,
 .cm-s-default .cm-header-1 {
   @extend %header;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
+  font-size: 2.2rem;
+  line-height: 2.5rem;
 }
+
+h1 { margin-bottom: 1.8rem; }
 
 h2,
 .cm-s-default .cm-header-2 {
@@ -43,6 +44,42 @@ h3,
   line-height: 1.8rem;
 }
 
+h4,
+.cm-s-default .cm-header-4 {
+  @extend %header;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+}
+
+h5,
+.cm-s-default .cm-header-5 {
+  @extend %header;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+}
+
+h6,
+.cm-s-default .cm-header-6 {
+  @extend %header;
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+// text elements
+p { margin-bottom: 1.5rem; }
+
+.cm-s-default .cm-markdown-header {
+  top: 0;
+  left: -80px;
+  width: 80px;
+  display: block;
+  color: $subtle;
+  text-align: right;
+  position: absolute;
+  font-size: inherit;
+  font-family: 'open_sansbold', sans-serif;
+}
+
 .cm-s-default .cm-link {
   color: $link;
 }
@@ -56,3 +93,31 @@ h3,
 }
 
 .cm-s-default .cm-variable-2 { color: $copy; }
+
+.cm-s-default .cm-markdown-code-span {
+  color: $header;
+  background: #eee;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.cm-s-default .cm-markdown-code {
+  color: $subtle;
+  font-size: 0.8rem;
+  font-family: 'open_sansbold', sans-serif;
+}
+
+.cm-s-default .cm-markdown-list {
+  color: $subtle;
+  padding-right: 10px;
+}
+
+.cm-keyword,
+.cm-tag,
+.cm-string,
+.cm-variable,
+.cm-def {
+  line-height: 1;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
