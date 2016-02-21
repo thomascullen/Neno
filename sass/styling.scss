@@ -40,17 +40,30 @@ html, body {
   background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0));
 }
 
-.current_mode {
+.info_bar {
+  left: 0;
+  bottom: 0;
   width: 100%;
   z-index: 10;
-  bottom: 5px;
   position: fixed;
-  text-align: center;
 
   span {
-    font-size: 11px;
     color: #A6B1BE;
+    font-size: 11px;
+    @extend %sans-serif;
     text-transform: uppercase;
-    font-family: 'open_sansbold', sans-serif;
+  }
+
+  .current_mode {
+    bottom: 0;
+    left: 10px;
+    position: absolute;
+  }
+
+  .wordcount {
+    bottom: 0;
+    right: 10px;
+    position: absolute;
   }
 }
+

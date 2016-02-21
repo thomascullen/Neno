@@ -21,7 +21,7 @@ h1,
 .cm-s-default .cm-header-3, h4,
 .cm-s-default .cm-header-4, h5,
 .cm-s-default .cm-header-5, h6,
-.cm-s-default .cm-header-6 {
+.cm-s-default .cm-header-6, .info_bar span {
   font-family: 'open_sansbold', serif; }
 
 html, body {
@@ -204,14 +204,21 @@ html, body {
   pointer-events: none;
   background: linear-gradient(rgba(255, 255, 255, 0), white); }
 
-.current_mode {
+.info_bar {
+  left: 0;
+  bottom: 0;
   width: 100%;
   z-index: 10;
-  bottom: 5px;
-  position: fixed;
-  text-align: center; }
-  .current_mode span {
-    font-size: 11px;
+  position: fixed; }
+  .info_bar span {
     color: #A6B1BE;
-    text-transform: uppercase;
-    font-family: 'open_sansbold', sans-serif; }
+    font-size: 11px;
+    text-transform: uppercase; }
+  .info_bar .current_mode {
+    bottom: 0;
+    left: 10px;
+    position: absolute; }
+  .info_bar .wordcount {
+    bottom: 0;
+    right: 10px;
+    position: absolute; }

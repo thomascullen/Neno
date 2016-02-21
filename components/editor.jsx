@@ -15,6 +15,8 @@ class Editor extends React.Component {
       lineWrapping: true,
     });
 
+    this.editor.on('change', this.props.onChange);
+
     ipcRenderer.on('open', function(event, content) {
       this.setContent(content);
     }.bind(this));
