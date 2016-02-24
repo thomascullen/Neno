@@ -19,6 +19,7 @@ class Application extends React.Component {
     super(props);
     this.state = { previewing: false, word_count: 0 };
     this.getContent = this.getContent.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -43,6 +44,11 @@ class Application extends React.Component {
     this.setState({ word_count });
   }
 
+  onScroll(e) {
+    const top = this.refs.editor.scrollTop();
+    this.refs.preview.scrollTo(top);
+  }
+
   render() {
     return React.createElement(
       'div',
@@ -50,6 +56,7 @@ class Application extends React.Component {
       React.createElement(Editor, {
         ref: 'editor',
         onChange: this.update,
+        onScroll: this.onScroll,
         visible: !this.state.previewing
       }),
       React.createElement(Preview, {
@@ -90,6 +97,8 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.focus = this.focus.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   componentDidMount() {
@@ -122,6 +131,14 @@ class Editor extends React.Component {
     this.editor.focus();
   }
 
+  scrollTop() {
+    return this.refs.editor.scrollTop;
+  }
+
+  scrollTo(top) {
+    this.refs.editor.scrollTop = top;
+  }
+
   className() {
     return classNames("editor", { "editor--open": this.props.visible });
   }
@@ -130,7 +147,8 @@ class Editor extends React.Component {
     return React.createElement('div', {
       ref: 'editor',
       onClick: this.focus,
-      className: this.className()
+      className: this.className(),
+      onScroll: this.props.onScroll
     });
   }
 }
@@ -152,6 +170,8 @@ class Preview extends React.Component {
     super(props);
     this.parse = this.parse.bind(this);
     this.previewHTML = this.previewHTML.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   parse() {
@@ -163,6 +183,14 @@ class Preview extends React.Component {
 
   previewHTML() {
     return { __html: this.parse() };
+  }
+
+  scrollTop() {
+    return this.refs.preview.scrollTop();
+  }
+
+  scrollTo(top) {
+    this.refs.preview.scrollTop = top;
   }
 
   className() {

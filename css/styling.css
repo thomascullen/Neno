@@ -25,11 +25,11 @@ h1,
   font-family: 'open_sansbold', serif; }
 
 html, body {
-  font-size: 17px;
-  line-height: 1.9rem; }
+  font-size: 18px;
+  line-height: 2rem; }
 
 .preview, .CodeMirror {
-  color: #4F5E6E; }
+  color: rgba(0, 0, 0, 0.8); }
 
 h1,
 .cm-s-default .cm-header-1, h2,
@@ -88,7 +88,8 @@ p {
   font-family: 'open_sansbold', sans-serif; }
 
 .cm-s-default .cm-link {
-  color: #1292FF; }
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: underline; }
 
 .cm-s-default .cm-url {
   color: #A6B1BE; }
@@ -97,7 +98,7 @@ p {
   color: #AEB7BE; }
 
 .cm-s-default .cm-variable-2 {
-  color: #4F5E6E; }
+  color: rgba(0, 0, 0, 0.8); }
 
 .cm-s-default .cm-markdown-code-span {
   color: #39434D;
@@ -113,6 +114,14 @@ p {
 .cm-s-default .cm-markdown-list {
   color: #A6B1BE;
   padding-right: 10px; }
+
+.cm-s-default .cm-quote {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.5rem;
+  font-style: italic; }
+
+.CodeMirror-line .cm-quote-1 {
+  margin-left: 2rem; }
 
 .cm-keyword,
 .cm-tag,
@@ -148,7 +157,13 @@ p {
   margin-bottom: 1.5rem; }
 
 .preview a {
-  color: #1292FF; }
+  color: rgba(0, 0, 0, 0.8); }
+
+.preview strong, .preview b {
+  font-weight: bold; }
+
+.preview img {
+  max-width: 100%; }
 
 .editor {
   width: 100vw;

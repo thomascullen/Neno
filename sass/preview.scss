@@ -27,5 +27,8 @@
     margin-bottom: 1.5rem;
   }
 
-  a { color: $link; }
+  a { color: $copy; }
+  strong, b { font-weight: bold; }
+
+  img { max-width: 100%; }
 }

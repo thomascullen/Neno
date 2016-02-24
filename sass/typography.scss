@@ -1,14 +1,14 @@
 @import 'fonts';
 
 $header: #39434D;
-$copy: #4F5E6E;
+$copy: rgba(0,0,0,.8);
 $link: #1292FF;
 $subtle: #A6B1BE;
 $comment: #AEB7BE;
 
 html, body {
-  font-size: 17px;
-  line-height: 1.9rem;
+  font-size: 18px;
+  line-height: 2rem;
 }
 
 * { @extend %serif; }
@@ -81,7 +81,8 @@ p { margin-bottom: 1.5rem; }
 }
 
 .cm-s-default .cm-link {
-  color: $link;
+  color: $copy;
+  text-decoration: underline;
 }
 
 .cm-s-default .cm-url {
@@ -110,6 +111,16 @@ p { margin-bottom: 1.5rem; }
 .cm-s-default .cm-markdown-list {
   color: $subtle;
   padding-right: 10px;
+}
+
+.cm-s-default .cm-quote {
+  color: $copy;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.CodeMirror-line .cm-quote-1 {
+  margin-left: 2rem;
 }
 
 .cm-keyword,

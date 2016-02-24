@@ -11,6 +11,7 @@ class Application extends React.Component {
     super(props);
     this.state = { previewing: false, word_count: 0 }
     this.getContent = this.getContent.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -35,12 +36,18 @@ class Application extends React.Component {
     this.setState({ word_count });
   }
 
+  onScroll(e) {
+    const top = this.refs.editor.scrollTop()
+    this.refs.preview.scrollTo(top);
+  }
+
   render() {
     return (
       <div className="application">
         <Editor
           ref="editor"
           onChange={this.update}
+          onScroll={this.onScroll}
           visible={!this.state.previewing}
         />
 

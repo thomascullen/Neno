@@ -40,7 +40,7 @@ app.newWindow = function(content, options) {
 
     const path = options != undefined ? options.path : undefined
     newWindow.path = path
-    // newWindow.webContents.openDevTools();
+    newWindow.webContents.openDevTools();
   });
 
   newWindow.on('focus', function() {

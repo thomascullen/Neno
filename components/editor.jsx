@@ -7,6 +7,8 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.focus = this.focus.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +41,14 @@ class Editor extends React.Component {
     this.editor.focus();
   }
 
+  scrollTop() {
+    return this.refs.editor.scrollTop;
+  }
+
+  scrollTo(top) {
+    this.refs.editor.scrollTop = top;
+  }
+
   className() {
     return classNames(
       "editor",
@@ -52,6 +62,7 @@ class Editor extends React.Component {
         ref="editor"
         onClick={this.focus}
         className={this.className()}
+        onScroll={this.props.onScroll}
       />
     )
   }

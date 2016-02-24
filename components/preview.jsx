@@ -11,6 +11,8 @@ class Preview extends React.Component {
     super(props);
     this.parse = this.parse.bind(this);
     this.previewHTML = this.previewHTML.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   parse() {
@@ -20,6 +22,14 @@ class Preview extends React.Component {
 
   previewHTML() {
     return { __html: this.parse() };
+  }
+
+  scrollTop() {
+    return this.refs.preview.scrollTop();
+  }
+
+  scrollTo(top) {
+    this.refs.preview.scrollTop = top;
   }
 
   className() {
