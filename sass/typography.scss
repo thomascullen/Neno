@@ -7,7 +7,7 @@ $subtle: #A6B1BE;
 $comment: #AEB7BE;
 
 html, body {
-  font-size: 18px;
+  font-size: 19px;
   line-height: 2rem;
 }
 
@@ -115,8 +115,9 @@ p { margin-bottom: 1.5rem; }
 
 .cm-s-default .cm-quote {
   color: $copy;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-style: italic;
+  color: lighten($copy, 10);
 }
 
 .CodeMirror-line .cm-quote-1 {

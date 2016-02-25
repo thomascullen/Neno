@@ -25,7 +25,7 @@ h1,
   font-family: 'open_sansbold', serif; }
 
 html, body {
-  font-size: 18px;
+  font-size: 19px;
   line-height: 2rem; }
 
 .preview, .CodeMirror {
@@ -117,8 +117,9 @@ p {
 
 .cm-s-default .cm-quote {
   color: rgba(0, 0, 0, 0.8);
-  font-size: 1.5rem;
-  font-style: italic; }
+  font-size: 1.4rem;
+  font-style: italic;
+  color: rgba(26, 26, 26, 0.8); }
 
 .CodeMirror-line .cm-quote-1 {
   margin-left: 2rem; }
@@ -164,6 +165,13 @@ p {
 
 .preview img {
   max-width: 100%; }
+
+.preview blockquote {
+  padding: 0 1.5rem;
+  font-size: 1.4rem;
+  font-style: italic; }
+  .preview blockquote p {
+    color: rgba(26, 26, 26, 0.8); }
 
 .editor {
   width: 100vw;

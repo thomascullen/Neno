@@ -25,7 +25,7 @@ app.on('ready', function() {
 // *content* - Content to be loaded into the editor
 app.newWindow = function(content, options) {
   const newWindow = new BrowserWindow({
-    width: 1100,
+    width: 1000,
     height: 700,
     center: true,
     minWidth: 600,

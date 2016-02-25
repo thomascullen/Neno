@@ -21,6 +21,11 @@ const menuTemplate = [
     label: 'File',
     submenu: [
       {
+        label: 'New',
+        accelerator: 'Command+n',
+        click: function() { app.newWindow(); }
+      },
+      {
         label: 'Open',
         accelerator: 'Command+o',
         click: function() { app.openFile(); }
@@ -34,6 +39,11 @@ const menuTemplate = [
         label: 'Save As',
         accelerator: 'Command+shift+s',
         click: function() { app.saveAs(); }
+      },
+      {
+        label: 'Close',
+        accelerator: 'Command+w',
+        click: function() { app.currentWindow.close() }
       }
     ]
   },

@@ -31,4 +31,13 @@
   strong, b { font-weight: bold; }
 
   img { max-width: 100%; }
+
+  blockquote {
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+    font-style: italic;
+    p {
+      color: lighten($copy, 10);
+    }
+  }
 }
